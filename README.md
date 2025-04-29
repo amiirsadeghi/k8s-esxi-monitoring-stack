@@ -1,6 +1,6 @@
 # k8s-esxi-monitoring-stack
 
-This project demonstrates how to monitor VMware ESXi virtual machines using Prometheus and Grafana on a Kubernetes cluster.
+This project demonstrates how to monitor VMware ESXi using Prometheus and Grafana on a Kubernetes cluster.
 
 ## Overview
 
