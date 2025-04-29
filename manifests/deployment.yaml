@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: esxi-exporter
+  namespace: monitoring
+  labels:
+    app: esxi-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: esxi-exporter
+  template:
+    metadata:
+      labels:
+        app: esxi-exporter
+    spec:
+      containers:
+      - name: exporter
+        image: pryorda/vmware_exporter:v0.18.3
+        env:
+        - name: VSPHERE_HOST
+          valueFrom:
+            secretKeyRef:
+              name: esxi-secret
+              key: VSPHERE_HOST
+        - name: VSPHERE_USER
+          valueFrom:
+            secretKeyRef:
+              name: esxi-secret
+              key: VSPHERE_USER
+        - name: VSPHERE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: esxi-secret
+              key: VSPHERE_PASSWORD
+        - name: VSPHERE_IGNORE_SSL
+          valueFrom:
+            secretKeyRef:
+              name: esxi-secret
+              key: VSPHERE_IGNORE_SSL
+        ports:
+        - name: metrics
+          containerPort: 9272

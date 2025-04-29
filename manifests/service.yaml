@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: esxi-exporter
+  namespace: monitoring
+  labels:
+    app: esxi-exporter
+    job: esxi-exporter
+    release: prometheus-stack
+spec:
+  selector:
+    app: esxi-exporter
+  ports:
+  - name: metrics
+    port: 9272
+    targetPort: 9272
