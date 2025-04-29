@@ -82,7 +82,7 @@ Import the dashboard from the `grafana/` folder or use the provided JSON manuall
 
 ## 🧪 Verify Metrics
 
-- Visit Prometheus UI: `http://<prometheus-url>:9090`
+- Visit Prometheus UI: `http://<prometheus-url>`
 - Run query: `vmware_vm_power_state`
 - You should see VMs listed with their power states
 
